@@ -10,16 +10,19 @@ namespace SalesWebMvc.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index() //Nome do método é mapeado para ação!
         {
             return View();
         }
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            //ViewData é um objeto dictionary (coleção de pares chave - valor)
+            ViewData["Message"] = "Sales Web MVC App from c# course";
+            ViewData["Professor"] = "Nelio Alves";
 
-            return View();
+            return View(); //Method builder: Método auxiliar que vai retornar um objeto do tipo IActionResult
+            //Irá procurar na pasta Views, na subpasta home a página About
         }
 
         public IActionResult Contact()
