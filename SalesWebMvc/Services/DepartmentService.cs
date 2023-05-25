@@ -1,7 +1,8 @@
 ﻿using SalesWebMvc.Models;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace SalesWebMvc.Services
 {
@@ -13,9 +14,9 @@ namespace SalesWebMvc.Services
             _context = context;
         }
 
-        public List<Department> FindAll() //Retorna lista com todos os vendedores do Banco de Dados
+        public async Task<List<Department>> FindAllAsync() //Retorna lista com todos os vendedores do Banco de Dados
         {
-            return _context.Department.OrderBy(x => x.Name).ToList();
+            return await _context.Department.OrderBy(x => x.Name).ToListAsync(); 
         }
     }
 }
